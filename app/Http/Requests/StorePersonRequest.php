@@ -24,7 +24,10 @@ class StorePersonRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "firstName" => 'required|max:32',
+            "lastName" => 'required|max:32',
+            "dateOfBirth" => 'required|date|before:now',
+            "height" => 'integer|between:90,250'
         ];
     }
 }
