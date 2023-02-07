@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -13,7 +12,7 @@ class UpdatePersonRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +23,10 @@ class UpdatePersonRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "firstName" => 'required|max:32',
+            "lastName" => 'required|max:32',
+            "dateOfBirth" => 'required|date|before:now',
+            "height" => 'integer|between:90,250'
         ];
     }
 }
