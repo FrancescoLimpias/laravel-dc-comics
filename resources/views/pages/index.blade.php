@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-    {{-- <a href=""></a> --}}
+    <a href="{{ route("people.create") }}">Register new person</a>
     <ul>
         @foreach ($people as $person)
             <li>

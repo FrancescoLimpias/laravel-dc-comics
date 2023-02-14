@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource("/", PersonController::class);
+Route::get('/', function(){return redirect('/people');});
+Route::resource("people", PersonController::class);
