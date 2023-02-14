@@ -26,7 +26,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view("pages.createPerson");
     }
 
     /**
@@ -37,7 +37,11 @@ class PersonController extends Controller
      */
     public function store(StorePersonRequest $request)
     {
-        //
+        $newPerson = new Person();
+        $newPerson->fill($request->all());
+        $newPerson->save();
+
+        return redirect()->route('people.index');
     }
 
     /**
